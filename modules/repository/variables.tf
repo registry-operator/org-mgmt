@@ -26,6 +26,12 @@ variable "visibility" {
   default     = "private"
 }
 
+variable "enable_pages" {
+  description = ""
+  type        = bool
+  default     = false
+}
+
 variable "topics" {
   description = ""
   type        = list(string)

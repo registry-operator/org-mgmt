@@ -21,6 +21,17 @@ resource "github_repository" "repo" {
 
   squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "PR_BODY"
+
+  dynamic "pages" {
+    for_each = var.enable_pages ? [1] : []
+    content {
+      cname = var.homepage_url
+      source {
+        branch = "gh-pages"
+        path   = "/"
+      }
+    }
+  }
 }
 
 resource "github_issue_label" "labels" {

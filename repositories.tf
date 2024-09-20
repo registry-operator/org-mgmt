@@ -5,6 +5,7 @@ module "registry_operator" {
   archived     = false
   visibility   = "public"
   homepage_url = "registry-operator.dev"
+  enable_pages = true
 }
 
 module "org_mgmt" {
