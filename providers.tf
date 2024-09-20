@@ -13,4 +13,5 @@ terraform {
 
 provider "github" {
   owner = "registry-operator"
+  token = var.gh_token
 }
