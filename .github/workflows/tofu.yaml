@@ -26,5 +26,5 @@ jobs:
       - run: |
           tofu init -upgrade
       - run: |
-          env -u GITHUB_TOKEN tofu \
+          GITHUB_TOKEN="${TF_VAR_gh_token}" tofu \
             apply -auto-approve -input=false -lock=true -no-color
