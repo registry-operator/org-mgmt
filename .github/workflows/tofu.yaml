@@ -26,6 +26,5 @@ jobs:
       - run: |
           tofu init -upgrade
       - run: |
-          unset GITHUB_TOKEN
-          tofu \
+          env -u GITHUB_TOKEN tofu \
             apply -auto-approve -input=false -lock=true -no-color
