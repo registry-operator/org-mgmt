@@ -1,9 +1,10 @@
 module "registry_operator" {
   source = "./modules/repository"
 
-  name       = "registry-operator"
-  archived   = false
-  visibility = "public"
+  name         = "registry-operator"
+  archived     = false
+  visibility   = "public"
+  homepage_url = "registry-operator.dev"
 }
 
 module "org_mgmt" {
@@ -11,4 +12,5 @@ module "org_mgmt" {
 
   name     = "org-mgmt"
   archived = false
+  topics   = []
 }

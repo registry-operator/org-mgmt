@@ -3,13 +3,39 @@ variable "name" {
   type        = string
 }
 
+variable "description" {
+  description = ""
+  type        = string
+  default     = ""
+}
+
+variable "homepage_url" {
+  description = ""
+  type        = string
+  default     = ""
+}
+
 variable "archived" {
-  type = bool
+  description = ""
+  type        = bool
 }
 
 variable "visibility" {
-  type    = string
-  default = "private"
+  description = ""
+  type        = string
+  default     = "private"
+}
+
+variable "topics" {
+  description = ""
+  type        = list(string)
+  default = [
+    "kubernetes",
+    "hacktoberfest",
+    "oci-registry",
+    "distribution",
+    "cncf",
+  ]
 }
 
 variable "labels" {
