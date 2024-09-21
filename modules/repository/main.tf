@@ -34,10 +34,15 @@ resource "github_repository" "repo" {
   }
 }
 
-resource "github_issue_label" "labels" {
-  for_each    = var.archived ? {} : { for label in var.labels : label.name => label }
+resource "github_issue_labels" "labels" {
   repository  = github_repository.repo.name
-  name        = each.value.name
-  description = each.value.description
-  color       = each.value.color
+
+  dynamic "label" {
+    for_each = var.labels
+    content {
+      name        = label.value.name
+      description = label.value.description
+      color       = label.value.color
+    }
+  }
 }
