@@ -24,3 +24,8 @@ resource "github_organization_settings" "registry_operator" {
   secret_scanning_enabled_for_new_repositories                 = true
   secret_scanning_push_protection_enabled_for_new_repositories = true
 }
+
+resource "github_organization_project" "project" {
+  name = "Registry Operator"
+  body = "Kanban board for registry operator."
+}

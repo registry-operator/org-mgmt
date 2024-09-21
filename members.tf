@@ -14,3 +14,13 @@ module "niesmaczne" {
   source   = "./modules/member"
   username = "niesmaczne"
 }
+
+module "team_core" {
+  source = "./modules/team"
+  name   = "core"
+  members = [
+    { username = module.shanduur.username, role = "maintainer" },
+    { username = module.shanduur_auto.username },
+    { username = module.niesmaczne.username },
+  ]
+}

@@ -1,3 +1,3 @@
-output "id" {
-  value = github_membership.member.id
+output "username" {
+  value = github_membership.member.username
 }
