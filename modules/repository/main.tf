@@ -1,7 +1,7 @@
 resource "github_repository" "repo" {
   name         = var.name
   description  = var.description
-  visibility   = var.visibility
+  visibility   = var.is_public ? "public" : "private"
   archived     = var.archived
   topics       = var.topics
   homepage_url = var.homepage_url
@@ -44,5 +44,27 @@ resource "github_issue_labels" "labels" {
       description = label.value.description
       color       = label.value.color
     }
+  }
+}
+
+resource "github_branch_protection_v3" "protection" {
+  count      = var.is_public ? 1 : 0
+  repository = github_repository.repo.name
+  branch     = "main"
+
+  enforce_admins                  = false
+  require_signed_commits          = true
+  require_conversation_resolution = true
+
+  required_status_checks {
+    strict = true
+    checks = var.required_status_checks
+  }
+
+  required_pull_request_reviews {
+    required_approving_review_count = 1
+    dismiss_stale_reviews           = true
+    require_code_owner_reviews      = false
+    require_last_push_approval      = false
   }
 }

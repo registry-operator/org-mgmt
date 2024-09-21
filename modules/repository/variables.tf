@@ -20,16 +20,25 @@ variable "archived" {
   type        = bool
 }
 
-variable "visibility" {
+variable "is_public" {
   description = ""
-  type        = string
-  default     = "private"
+  type        = bool
+  default     = false
 }
 
 variable "enable_pages" {
   description = ""
   type        = bool
   default     = false
+}
+
+variable "required_status_checks" {
+  description = ""
+  type        = list(string)
+  default = [
+    "DCO",
+    "pr-title",
+  ]
 }
 
 variable "topics" {

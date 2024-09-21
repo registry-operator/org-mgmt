@@ -3,9 +3,16 @@ module "registry_operator" {
 
   name         = "registry-operator"
   archived     = false
-  visibility   = "public"
+  is_public    = true
   homepage_url = "registry-operator.dev"
   enable_pages = true
+
+  required_status_checks = [
+    "DCO",
+    "pr-title",
+    "generators",
+    "unit",
+  ]
 }
 
 module "org_mgmt" {
