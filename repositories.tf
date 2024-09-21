@@ -13,6 +13,10 @@ module "registry_operator" {
     "generators",
     "unit",
   ]
+
+  milestones = [
+    "v0.1.0",
+   ]
 }
 
 module "org_mgmt" {

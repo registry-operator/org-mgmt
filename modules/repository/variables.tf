@@ -53,6 +53,12 @@ variable "topics" {
   ]
 }
 
+variable "milestones" {
+  description = ""
+  type        = set(string)
+  default     = []
+}
+
 variable "labels" {
   description = "List of labeles that are assigned to repository"
   type = list(object({

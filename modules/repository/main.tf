@@ -68,3 +68,11 @@ resource "github_branch_protection_v3" "protection" {
     require_last_push_approval      = false
   }
 }
+
+resource "github_repository_milestone" "milestone" {
+  for_each = var.milestones
+
+  owner      = "registry-operator"
+  repository = github_repository.repo.name
+  title      = each.value
+}
