@@ -70,6 +70,7 @@ variable "labels" {
     { name = "area/dependency", color = "0052cc", description = "Issues or PRs related to dependency changes." },
     { name = "do-not-merge", color = "e11d21", description = "Indicates that a PR should not merge." },
     { name = "kind/bug", color = "e11d21", description = "Categorizes issue or PR as related to a bug." },
+    { name = "kind/security", color = "e11d21", description = "Categorizes issue or PR as related to a security." },
     { name = "kind/documentation", color = "c7def8", description = "Categorizes issue or PR as related to documentation." },
     { name = "kind/feature", color = "c7def8", description = "Categorizes issue or PR as related to a new feature." },
     { name = "good first issue", color = "7057ff", description = "Denotes an issue ready for a new contributor, according to the \"help wanted\" guidelines." },
