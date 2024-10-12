@@ -22,7 +22,19 @@ module "registry_operator" {
 module "org_mgmt" {
   source = "./modules/repository"
 
-  name     = "org-mgmt"
-  archived = false
-  topics   = []
+  name      = "org-mgmt"
+  archived  = false
+  is_public = true
+  topics = [
+    "opentofu",
+    "registry-operator",
+  ]
+
+  required_status_checks = [
+    "DCO",
+    "pr-title",
+    "tofu-fmt",
+    "tflint",
+    "shell-linter",
+  ]
 }
