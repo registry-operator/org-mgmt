@@ -1,3 +1,3 @@
 # Organization management
 
-Managing platforms with GitOps via OpenTofu!
+Managing organization with GitOps via OpenTofu!
