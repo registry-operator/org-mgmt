@@ -16,7 +16,7 @@ module "registry_operator" {
 
   milestones = [
     "v0.1.0",
-   ]
+  ]
 }
 
 module "org_mgmt" {
