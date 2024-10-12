@@ -55,8 +55,11 @@ variable "topics" {
 
 variable "milestones" {
   description = ""
-  type        = set(string)
-  default     = []
+  type = list(object({
+    name   = string
+    closed = optional(bool, false)
+  }))
+  default = []
 }
 
 variable "labels" {

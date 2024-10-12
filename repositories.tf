@@ -15,8 +15,8 @@ module "registry_operator" {
   ]
 
   milestones = [
-    "v0.1.0",
-    "v0.2.0",
+    { name = "v0.1.0", closed = true },
+    { name = "v0.2.0", },
   ]
 }
 

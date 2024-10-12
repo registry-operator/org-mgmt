@@ -70,9 +70,11 @@ resource "github_branch_protection_v3" "protection" {
 }
 
 resource "github_repository_milestone" "milestone" {
-  for_each = var.milestones
-
   owner      = "registry-operator"
   repository = github_repository.repo.name
-  title      = each.value
+
+  for_each = { for milestone in var.milestones : milestone.name => milestone }
+
+  title = each.value.name
+  state = each.value.closed ? "closed" : "open"
 }
