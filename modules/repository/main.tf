@@ -12,6 +12,7 @@ resource "github_repository" "repo" {
   has_wiki           = false
   has_projects       = true
 
+  allow_update_branch         = true
   allow_auto_merge            = true
   allow_squash_merge          = true
   allow_merge_commit          = false
@@ -77,4 +78,16 @@ resource "github_repository_milestone" "milestone" {
 
   title = each.value.name
   state = each.value.closed ? "closed" : "open"
+}
+
+data "bitwarden_secret" "secrets" {
+  for_each = { for s in var.secrets : s.name => s }
+  id       = each.value.secret_id
+}
+
+resource "github_actions_secret" "secrets" {
+  for_each        = data.bitwarden_secret.secrets
+  repository      = github_repository.repo.name
+  secret_name     = each.key
+  plaintext_value = each.value.value
 }

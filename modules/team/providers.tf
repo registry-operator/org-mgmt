@@ -2,7 +2,9 @@
 terraform {
   required_providers {
     # tflint-ignore: terraform_required_providers
-    github = {}
+    github = {
+      source = "integrations/github"
+    }
   }
 }
 

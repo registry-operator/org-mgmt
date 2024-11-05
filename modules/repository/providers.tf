@@ -2,7 +2,13 @@
 terraform {
   required_providers {
     # tflint-ignore: terraform_required_providers
-    github = {}
+    github = {
+      source = "integrations/github"
+    }
+    # tflint-ignore: terraform_required_providers
+    bitwarden = {
+      source = "maxlaverse/bitwarden"
+    }
   }
 }
 
