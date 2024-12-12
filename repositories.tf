@@ -58,7 +58,8 @@ module "registry_operator" {
 
   milestones = [
     { name = "v0.1.0", closed = true },
-    { name = "v0.2.0", },
+    { name = "v0.2.0", closed = true },
+    { name = "v0.3.0", },
   ]
 
   secrets = [
